@@ -3,9 +3,11 @@ import express from 'express';
 import cors from 'cors';
 import mongoose from 'mongoose';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 const app = express();
 const port = Number(process.env.PORT || 5000);
+const clientDist = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../../client/dist');
 app.use(cors());
 app.use(express.json({ limit: '32kb' }));
 
@@ -83,10 +85,10 @@ app.patch('/api/requests/:id/status', async (req, res, next) => {
     res.json(row);
   } catch (err) { next(err); }
 });
-app.use(express.static(path.resolve(process.cwd(), 'client/dist')));
+app.use(express.static(clientDist));
 app.use((req, res, next) => {
   if (req.method !== 'GET' || req.path.startsWith('/api/')) return next();
-  res.sendFile(path.resolve(process.cwd(), 'client/dist/index.html'), err => { if (err) next(); });
+  res.sendFile(path.join(clientDist, 'index.html'), err => { if (err) next(); });
 });
 app.use((err, _req, res, _next) => {
   console.error(err.message);
