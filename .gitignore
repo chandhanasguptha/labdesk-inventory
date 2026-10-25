@@ -1,0 +1,16 @@
+node_modules/
+.pnpm-store/
+tmp/
+.submission-details.json
+client/dist/
+.env
+.env.*
+!.env.example
+server/.env
+server/.env.*
+!server/.env.example
+*.log
+.DS_Store
+Thumbs.db
+
+output/pdf/

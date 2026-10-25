@@ -47,4 +47,3 @@ The project theme and high-level workflow were informed by LabFlow, created by M
 ## Limitations
 
 This is a learning prototype. It does not implement user authentication, role enforcement, or production database provisioning. Do not enter real student or institution data. Production use requires authentication, authorization, audit logging, secure configuration, and a managed MongoDB deployment.
-

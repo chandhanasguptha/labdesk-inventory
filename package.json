@@ -1,0 +1,14 @@
+{
+  "name": "labdesk-inventory",
+  "private": true,
+  "version": "1.0.0",
+  "engines": { "node": ">=20.19.0" },
+  "scripts": {
+    "dev": "concurrently -k \"pnpm:dev:server\" \"pnpm:dev:client\"",
+    "dev:client": "pnpm --filter labdesk-client dev -- --host 127.0.0.1",
+    "dev:server": "pnpm --filter labdesk-server dev",
+    "build": "pnpm --filter labdesk-client build",
+    "start": "pnpm --filter labdesk-server start"
+  },
+  "devDependencies": { "concurrently": "^9.2.1" }
+}
